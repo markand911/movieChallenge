@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Movies.BL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MoviesAPIPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://webjetapitest.azurewebsites.net/api</Value>
+    </Setting>
+    <Setting Name="APIToken" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sjd1HfkjU83ksdsm3802k</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
