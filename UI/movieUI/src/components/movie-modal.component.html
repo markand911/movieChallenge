@@ -1,0 +1,141 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{movie.Title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-4">
+        <img [src]="movie.Poster" alt="Image not available" style="width: 200px;" />
+      </div>
+      <div class="col-sm-8">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <td>
+              Actors
+            </td>
+            <td>
+              {{movie.Actors}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Director
+            </td>
+            <td>
+              {{movie.Director}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Writer
+            </td>
+            <td>
+              {{movie.Writer}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Language
+            </td>
+            <td>
+              {{movie.Language}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Genre
+            </td>
+            <td>
+              {{movie.Genre}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Year
+            </td>
+            <td>
+              {{movie.Year}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Rated
+            </td>
+            <td>
+              {{movie.Rated}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Released
+            </td>
+            <td>
+              {{movie.Released}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Runtime
+            </td>
+            <td>
+              {{movie.Runtime}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Type
+            </td>
+            <td>
+              {{movie.Type}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Price
+            </td>
+            <td>
+              {{movie.Price}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Votes
+            </td>
+            <td>
+              {{movie.Votes}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Country
+            </td>
+            <td>
+              {{movie.Country}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Metascore
+            </td>
+            <td>
+              <progressbar [value]="movie.Metascore" [maxValue]="100"></progressbar>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Rating
+            </td>
+            <td>
+              <progressbar [value]="movie.Rating" [maxValue]="10"></progressbar>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<button class="btn btn-primary" (click)="open(content)">Details</button>
