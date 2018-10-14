@@ -23,5 +23,6 @@ namespace API.Models
         public string Type { get; set; }
         public string Price { get; set; }
         public Uri Poster { get; set; }
+        public string Link { get; set; }
     }
 }

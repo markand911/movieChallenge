@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MovieModel } from '../models/MovieModel';
-import { ProgressBar } from "./progress-bar.component";
+
 
 @Component({
     selector: 'movie-modal',

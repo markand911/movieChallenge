@@ -1,10 +1,21 @@
-<div class=" card" style="width:250px;">
+<div class="card" style="width:250px;">
   <img class="card-img-top" [src]="movie.Poster" alt="Image not available" style="width:250px">
   <div class="card-body">
     <h4 class="card-title">{{movie.Title}}</h4>
-
-    <p class="card-text" *ngIf="cinemaWorldPrice"> Cinema World Price : {{cinemaWorldPrice}}</p>
-    <p class="card-text" *ngIf="filmWorldPrice">Film World Price :{{filmWorldPrice}}</p>
-    <movie-modal [movie]="movieDetail"></movie-modal>
+    <app-pixel-spinner *ngIf="!isMovieModelReady" [animationDuration]="2000" [color]="'#555'"></app-pixel-spinner>
+    <div *ngIf="isMovieModelReady">
+      <p class="card-text" *ngIf="cinemaWorldPrice>-1">
+        Cinema World Price :
+        <span [class]="{'bg-success':cinemaWorldPrice>filmWorldPrice}">
+          {{cinemaWorldPrice}}
+        </span>
+      </p>
+      <p class="card-text" *ngIf="filmWorldPrice>-1">
+        Film World Price :
+        <span [class]="{'bg-success':cinemaWorldPrice<filmWorldPrice}">
+          {{filmWorldPrice}}
+        </span></p>
+      <movie-modal [movie]="movieDetail"></movie-modal>
+    </div>
   </div>
 </div>

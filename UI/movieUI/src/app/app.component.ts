@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MovieAPIModel } from '../models/MovieAPIModel';
 import { IMovieService } from '../services/IMovieService';
 import { IMovieServiceToken } from '../services/IMovieService-Token';
 import { forkJoin } from "rxjs/observable/forkJoin";
 import { MovieModel } from '../models/MovieModel';
+import { MovieAPIModel } from '../models/MovieAPIModel';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { MovieModel } from '../models/MovieModel';
 export class AppComponent implements OnInit {
 
   private _movieService: IMovieService;
-  movies: MovieModel[];
+  movies: MovieModel[] = [];
   isModelReady: boolean = false;
   api: string = "http://markandmovieapi.azurewebsites.net/api/Movie/";
 
@@ -35,15 +35,16 @@ export class AppComponent implements OnInit {
       .subscribe(results => {
         var cinemaMovies = results[0];
         var filmMovies = results[1];
-        this.movies = cinemaMovies.Movies;
-        this.addMovies(cinemaMovies.Movies, 'cinemaworld');
-        this.addMovies(filmMovies.Movies, 'filmworld');
+        this.addMovies(cinemaMovies, 'cinemaworld');
+        this.addMovies(filmMovies, 'filmworld');
         this.isModelReady = true;
       });
   }
 
-  addMovies(apiMovies: MovieModel[], source: string) {
-    apiMovies.forEach(item => {
+  addMovies(apiMovies: MovieAPIModel, source: string) {
+    if (apiMovies === null || apiMovies === undefined) return;
+
+    apiMovies.Movies.forEach(item => {
       var movie = this.movies.find(x => x.Title == item.Title);
       var detailsLink = this.api + item.ID + "?source=" + source;
       if (movie === null || movie === undefined) {

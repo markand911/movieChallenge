@@ -1,17 +1,19 @@
 <nav class="navbar navbar-expand-sm bg-dark">
   <!-- Links -->
   <ul class="navbar-nav">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search Movie">
-    <button class="btn btn-success" type="submit">Search</button>
+    <button class="btn btn-primary" (click)="loadMovies()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
   </ul>
 </nav>
 <div class="jumbotron text-center">
   <h1>Movies</h1>
-  <p>Movies in your nearby cinema halls</p>
+  <p>Movies from Cinema World and Film World</p>
 </div>
 <div class="container">
   <app-pixel-spinner *ngIf="!isModelReady" [animationDuration]="2000" [color]="'#555'"></app-pixel-spinner>
-  <div *ngFor="let movie of movies" class="card" style="float:left;width:300px;">
-    <movie [movie]="movie"></movie>
+
+  <div *ngIf="isModelReady" class="row">
+    <div *ngFor="let movie of movies" class="col-md-4 col-sm-6 col-12">
+      <movie [movie]="movie"></movie>
+    </div>
   </div>
 </div>
