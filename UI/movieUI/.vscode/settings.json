@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/8fd398d9-6702-4ce3-aa21-660b482bbd74/resourceGroups/markandmovieapi/providers/Microsoft.Web/sites/markandmovies",
-    "appService.deploySubpath": "dist\\movieUI"
-}
