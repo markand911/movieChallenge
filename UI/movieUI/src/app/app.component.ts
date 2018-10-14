@@ -4,6 +4,7 @@ import { IMovieServiceToken } from '../services/IMovieService-Token';
 import { forkJoin } from "rxjs/observable/forkJoin";
 import { MovieModel } from '../models/MovieModel';
 import { MovieAPIModel } from '../models/MovieAPIModel';
+import { Config } from "../config/config";
 
 @Component({
   selector: 'app-root',
@@ -46,7 +47,7 @@ export class AppComponent implements OnInit {
 
     apiMovies.Movies.forEach(item => {
       var movie = this.movies.find(x => x.Title == item.Title);
-      var detailsLink = this.api + item.ID + "?source=" + source;
+      var detailsLink = Config.MoviesAPI + "/" + item.ID + "?source=" + source;
       if (movie === null || movie === undefined) {
         if (item.DetailsLink === null || item.DetailsLink === undefined) {
           item.DetailsLink = [];
